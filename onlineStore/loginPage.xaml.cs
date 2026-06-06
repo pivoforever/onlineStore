@@ -34,7 +34,9 @@ namespace onlineStore
             {
                 if (row.login.ToString()==loginTextBox.Text && row.password.ToString() == passwordBox.Password)
                 {
-                    access=true;
+                    SessionManager.CurrentUserId = row.ID; // Сохраняем ID
+                    SessionManager.CurrentUserLogin = row.login;
+                    access =true;
                     if (row.access_level.ToString() == "admin")
                     {
                         Manager.allFrame.Navigate(new adminPage());

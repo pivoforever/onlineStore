@@ -98,6 +98,7 @@
     <Compile Include="reviews.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="SessionManager.cs" />
     <Compile Include="statuses.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -25,7 +25,8 @@ namespace onlineStore
         {
             InitializeComponent();
             bd = new onlineStoreEntities();
-            orderArchiveDataGrid.ItemsSource=bd.orders.ToList();
+            var userOrders=from row in bd.orders where row.user_ID == SessionManager.CurrentUserId select row;
+            orderArchiveDataGrid.ItemsSource= userOrders.ToList();
         }
     }
 }
