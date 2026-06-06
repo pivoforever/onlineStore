@@ -9,6 +9,12 @@
       Title="userPage">
 
     <Grid>
-        <DataGrid Name="userDataGrid"></DataGrid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="userDataGrid" Grid.Row="1"></DataGrid>
+        <Button Content="Архив заказов" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonArchive_Click"/>
+        <Button Content="Создать заказ" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonCreate_Click"/>
     </Grid>
 </Page>

@@ -16,26 +16,16 @@ using System.Windows.Shapes;
 namespace onlineStore
 {
     /// <summary>
-    /// Логика взаимодействия для userPage.xaml
+    /// Логика взаимодействия для orderArchivePage.xaml
     /// </summary>
-    public partial class userPage : Page
+    public partial class orderArchivePage : Page
     {
         onlineStoreEntities bd;
-        public userPage()
+        public orderArchivePage()
         {
             InitializeComponent();
             bd = new onlineStoreEntities();
-            userDataGrid.ItemsSource=bd.goods.ToList();
+            orderArchiveDataGrid.ItemsSource=bd.orders.ToList();
         }
-
-        private void ButtonArchive_Click(object sender, RoutedEventArgs e)
-        {
-            Manager.allFrame.Navigate(new orderArchivePage());
-        }
-        private void ButtonCreate_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
     }
 }
