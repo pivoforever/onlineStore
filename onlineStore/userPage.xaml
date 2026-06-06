@@ -9,6 +9,6 @@
       Title="userPage">
 
     <Grid>
-        <Label Content="user" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <DataGrid Name="userDataGrid"></DataGrid>
     </Grid>
 </Page>

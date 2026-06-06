@@ -20,9 +20,12 @@ namespace onlineStore
     /// </summary>
     public partial class userPage : Page
     {
+        onlineStoreEntities bd;
         public userPage()
         {
             InitializeComponent();
+            bd = new onlineStoreEntities();
+            userDataGrid.ItemsSource=bd.goods.ToList();
         }
     }
 }
