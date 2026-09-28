@@ -12,9 +12,8 @@
         <DataGrid Name="orderArchiveDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding date}" Header="Дата заказа" Width="100"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding statuses.name}" Header="Статус заказа" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding statuses.name}" Header="Статус" Width="100"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding users.name}" Header="Пользователь" Width="*"></DataGridTextColumn>
-
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
