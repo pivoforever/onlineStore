@@ -20,10 +20,10 @@ namespace onlineStore
     /// </summary>
     public partial class loginPage : Page
     {
-        bool isActiv;
         public loginPage()
         {
             InitializeComponent();
+            SessionManager.ClearSession();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -49,6 +49,8 @@ namespace onlineStore
             if (!access)
             {
                 MessageBox.Show("Неверный логин/пароль");
+                loginTextBox.Text = "";
+                passwordBox.Password = "";
             }
         }
     }

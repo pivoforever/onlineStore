@@ -23,7 +23,7 @@ namespace onlineStore
         public userPage()
         {
             InitializeComponent();
-            userDataGrid.ItemsSource= onlineStoreEntities.GetContext().goods.ToList();
+            userDataGrid.ItemsSource=onlineStoreEntities.GetContext().goods.ToList();
         }
 
         private void ButtonArchive_Click(object sender, RoutedEventArgs e)
