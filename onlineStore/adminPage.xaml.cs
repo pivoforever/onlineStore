@@ -20,12 +20,10 @@ namespace onlineStore
     /// </summary>
     public partial class adminPage : Page
     {
-        onlineStoreEntities bd;
         public adminPage()
         {
             InitializeComponent();
-            bd = new onlineStoreEntities();
-            adminDataGrid.ItemsSource = bd.goods.ToList();
+            adminDataGrid.ItemsSource = onlineStoreEntities.GetContext().goods.ToList();
         }
     }
 }

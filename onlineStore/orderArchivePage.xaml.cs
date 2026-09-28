@@ -20,12 +20,10 @@ namespace onlineStore
     /// </summary>
     public partial class orderArchivePage : Page
     {
-        onlineStoreEntities bd;
         public orderArchivePage()
         {
             InitializeComponent();
-            bd = new onlineStoreEntities();
-            var userOrders=from row in bd.orders where row.user_ID == SessionManager.CurrentUserId select row;
+            var userOrders=from row in onlineStoreEntities.GetContext().orders where row.user_ID == SessionManager.CurrentUserId select row;
             orderArchiveDataGrid.ItemsSource= userOrders.ToList();
         }
     }

@@ -22,6 +22,8 @@ namespace onlineStore
             CurrentUserLogin = null;
             CurrentUserRole = null;
         }
+
+
     }
 }
 

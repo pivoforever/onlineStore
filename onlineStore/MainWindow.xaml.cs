@@ -25,9 +25,10 @@ namespace onlineStore
             InitializeComponent();
             Manager.allFrame = myFrame;
             Manager.allFrame.Navigate(new loginPage());
+            //myFrame.Navigate(new loginPage());
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_back(object sender, RoutedEventArgs e)
         {
             Manager.allFrame.Navigate(new loginPage());
         }

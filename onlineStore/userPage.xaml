@@ -13,7 +13,14 @@
             <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <DataGrid Name="userDataGrid" Grid.Row="1"></DataGrid>
+        <DataGrid Name="userDataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding name}" Header="Товар" Width="300"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding price}" Header="Цена"  Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding category}" Header="Категория" Width="200"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding quantity}" Header="Остаток" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Архив заказов" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonArchive_Click"/>
         <Button Content="Создать заказ" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonCreate_Click"/>
     </Grid>

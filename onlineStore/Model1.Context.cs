@@ -15,11 +15,21 @@ namespace onlineStore
     
     public partial class onlineStoreEntities : DbContext
     {
+        private static onlineStoreEntities _context;
         public onlineStoreEntities()
             : base("name=onlineStoreEntities")
         {
         }
-    
+
+        public static onlineStoreEntities GetContext()
+        {
+            if (_context == null)
+            {
+                _context=new onlineStoreEntities();
+            }
+            return _context;
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
