@@ -9,6 +9,11 @@
       Title="orderArchivePage">
 
     <Grid>
-        <DataGrid Name="orderArchiveDataGrid" ></DataGrid>
+        <DataGrid Name="orderArchiveDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding date, StringFormat='{}{0:dd MMMM yyyy}'}" Header="Дата" Width="200"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding statuses.name}" Header="Статус"  Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

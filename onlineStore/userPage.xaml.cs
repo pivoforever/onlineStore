@@ -20,12 +20,10 @@ namespace onlineStore
     /// </summary>
     public partial class userPage : Page
     {
-        onlineStoreEntities bd;
         public userPage()
         {
             InitializeComponent();
-            bd = new onlineStoreEntities();
-            userDataGrid.ItemsSource=bd.goods.ToList();
+            userDataGrid.ItemsSource=onlineStoreEntities.GetContext().goods.ToList();
         }
 
         private void ButtonArchive_Click(object sender, RoutedEventArgs e)

@@ -9,6 +9,13 @@
       Title="adminPage">
 
     <Grid>
-        <DataGrid Name="adminDataGrid"></DataGrid>
+        <DataGrid Name="adminDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding name}" Header="Название" Width="300"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding price}" Header="Цена"  Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding category}" Header="Категория" Width="200"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding quantity}" Header="Остаток" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

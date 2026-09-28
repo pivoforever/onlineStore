@@ -102,6 +102,7 @@
     <Compile Include="statuses.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Test.cs" />
     <Compile Include="userPage.xaml.cs">
       <DependentUpon>userPage.xaml</DependentUpon>
     </Compile>

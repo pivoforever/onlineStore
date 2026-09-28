@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:onlineStore"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="800"
+      Background="Aqua"
       Title="loginPage">
 
     <Grid>

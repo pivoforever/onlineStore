@@ -20,17 +20,16 @@ namespace onlineStore
     /// </summary>
     public partial class loginPage : Page
     {
-        onlineStoreEntities bd;
         public loginPage()
         {
             InitializeComponent();
-            bd=new onlineStoreEntities();
+            SessionManager.ClearSession();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             bool access = false;
-            foreach (var row in bd.users.ToList() )
+            foreach (var row in onlineStoreEntities.GetContext().users.ToList() )
             {
                 if (row.login.ToString()==loginTextBox.Text && row.password.ToString() == passwordBox.Password)
                 {
@@ -50,6 +49,8 @@ namespace onlineStore
             if (!access)
             {
                 MessageBox.Show("Неверный логин/пароль");
+                loginTextBox.Text = "";
+                passwordBox.Password = "";
             }
         }
     }
