@@ -9,6 +9,11 @@
       Title="AddOrderPage">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
@@ -20,6 +25,11 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Button Content="Сохранить заказ" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="130" Height="30" Grid.Row="7" Click="Button_Click"></Button>
-        <ComboBox Width="300" Height="30" HorizontalAlignment="Left" ></ComboBox>
+        <ComboBox x:Name="goodsComboBox" Width="300" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"></ComboBox>
+        <TextBox x:Name="quantityTextBox" Width="100" Height="30" HorizontalAlignment="Right" Margin="10" Grid.Column="2"  VerticalAlignment="Center"></TextBox>
+        <Label Content="количество" Grid.Column="2" HorizontalAlignment="Left" Margin="5"  VerticalAlignment="Center"></Label>
+        <Label Content="цена" HorizontalAlignment="Left" Margin="5"  VerticalAlignment="Center" Grid.Column="1"></Label>
+        <Label Content="" x:Name="goodsPriceLabel"  HorizontalAlignment="Center" Margin="10" FontSize="15" VerticalAlignment="Center" Grid.Column="1"></Label>
+        <Label Content="руб." HorizontalAlignment="Right" Margin="5"  VerticalAlignment="Center" Grid.Column="1"></Label>
     </Grid>
 </Page>
