@@ -30,12 +30,6 @@ namespace onlineStore
             return _context;
         }
 
-        public static onlineStoreEntities GetContext()
-        {
-            if (_context == null) _context=new onlineStoreEntities();
-            return _context;
-        }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

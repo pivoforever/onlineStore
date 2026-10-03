@@ -20,14 +20,31 @@ namespace onlineStore
     /// </summary>
     public partial class AddOrderPage : Page
     {
+        private orders_details _currentOrderDetails = new orders_details();
+        private orders _currentOrder = new orders()
+        {
+            date = DateTime.Now,
+            user_ID = SessionManager.CurrentUserId,
+            status_ID = 4
+        };
         public AddOrderPage()
         {
             InitializeComponent();
+            DataContext = _currentOrderDetails;
+            goodsComboBox.ItemsSource = onlineStoreEntities.GetContext().goods.ToList();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            onlineStoreEntities.GetContext().orders.Add(_currentOrder);
+            _currentOrderDetails.order_ID = _currentOrder.ID;
+            onlineStoreEntities.GetContext().orders_details.Add(_currentOrderDetails);
+            onlineStoreEntities.GetContext().SaveChanges();
+        }
 
+        private void goodsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            goodsPriceLabel.Content = "Цена: " + (goodsComboBox.SelectedItem as goods).price + " руб.";
         }
     }
 }

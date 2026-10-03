@@ -32,7 +32,7 @@ namespace onlineStore
         }
         private void ButtonCreate_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.allFrame.Navigate(new AddOrderPage());
         }
 
     }
