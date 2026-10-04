@@ -1,0 +1,33 @@
+﻿<Page x:Class="onlineStore.goodEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:onlineStore"
+      mc:Ignorable="d" 
+      d:DesignHeight="320" d:DesignWidth="800"
+      Title="goodEditPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="_Название товара" Target="{Binding  ElementName=nameTextBox}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Grid.Row="0"/>
+        <TextBox x:Name="nameTextBox" Text="{Binding name}" Width="300" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+        <Label Content="_Цена" Target="{Binding  ElementName=priceTextBox}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Grid.Row="1"/>
+        <TextBox x:Name="priceTextBox" Text="{Binding price}" Width="300" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+        <Label Content="_Категория" Target="{Binding  ElementName=categoryTextBox}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Grid.Row="2"/>
+        <TextBox x:Name="categoryTextBox" Text="{Binding category}" Width="300" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
+        <Label Content="_Количество" Target="{Binding  ElementName=quantityTextBox}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Grid.Row="3"/>
+        <TextBox x:Name="quantityTextBox" Text="{Binding quantity}" Width="300" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3"/>
+        <Button Content="Сохранить изменения" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="40" Grid.Row="4" Grid.ColumnSpan="2" Click="BtnSave_Click"/>
+    </Grid>
+</Page>

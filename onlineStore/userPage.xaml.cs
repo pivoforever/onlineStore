@@ -35,5 +35,29 @@ namespace onlineStore
             Manager.allFrame.Navigate(new AddOrderPage());
         }
 
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedGood = userDataGrid.SelectedItem as goods;
+            if (selectedGood != null)
+            {
+                Manager.allFrame.Navigate(new goodEditPage(selectedGood));
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedGood = userDataGrid.SelectedItem as goods;
+            if (selectedGood != null)
+            {
+                onlineStoreEntities.GetContext().goods.Remove(selectedGood);
+                onlineStoreEntities.GetContext().SaveChanges();
+                userDataGrid.ItemsSource = onlineStoreEntities.GetContext().goods.ToList();
+            }
+        }
     }
 }
