@@ -22,10 +22,11 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="Архив заказов" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonArchive_Click"/>
-            <Button Content="Создать заказ" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonCreate_Click"/>
-            <Button Content="Редактировать товар" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonEdit_Click"/>
-            <Button Content="Удалить товар" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonDelete_Click"/>
+            <Button Content="Архив заказов" VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonArchive_Click"/>
+            <Button Content="Создать заказ" VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonCreate_Click"/>
+            <Button Content="Добавить товар" VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonAdd_Click"/>
+            <Button Content="Редактировать товар" VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonEdit_Click"/>
+            <Button Content="Удалить товар" VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonDelete_Click"/>
         </StackPanel>
     </Grid>
 </Page>

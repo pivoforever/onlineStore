@@ -44,11 +44,6 @@ namespace onlineStore
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
             var selectedGood = userDataGrid.SelectedItem as goods;
@@ -58,6 +53,11 @@ namespace onlineStore
                 onlineStoreEntities.GetContext().SaveChanges();
                 userDataGrid.ItemsSource = onlineStoreEntities.GetContext().goods.ToList();
             }
+        }
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.allFrame.Navigate(new goodEditPage(null));
         }
     }
 }
