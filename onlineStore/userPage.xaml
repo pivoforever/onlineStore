@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:onlineStore"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="320" d:DesignWidth="800"
       Title="userPage">
 
     <Grid>
@@ -16,12 +16,17 @@
         <DataGrid Name="userDataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding name}" Header="Товары" Width="100"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding price}" Header="Цена" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding price, StringFormat='{}{0:F0}'}" Header="Цена" Width="100"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding category}" Header="Категория" Width="100"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding quantity}" Header="Количество" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Архив заказов" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonArchive_Click"/>
-        <Button Content="Создать заказ" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonCreate_Click"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Архив заказов" VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonArchive_Click"/>
+            <Button Content="Создать заказ" VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonCreate_Click"/>
+            <Button Content="Добавить товар" VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonAdd_Click"/>
+            <Button Content="Редактировать товар" VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonEdit_Click"/>
+            <Button Content="Удалить товар" VerticalAlignment="Center" Width="130" Height="30" Margin="10" Click="ButtonDelete_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

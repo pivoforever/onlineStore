@@ -26,5 +26,15 @@ namespace onlineStore
             var userOrders=from row in onlineStoreEntities.GetContext().orders where row.user_ID == SessionManager.CurrentUserId select row;
             orderArchiveDataGrid.ItemsSource= userOrders.ToList();
         }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility==Visibility.Visible)
+            {
+                onlineStoreEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload()) ;
+                var userOrders = from row in onlineStoreEntities.GetContext().orders where row.user_ID == SessionManager.CurrentUserId select row;
+                orderArchiveDataGrid.ItemsSource = userOrders.ToList();
+            }
+        }
     }
 }
