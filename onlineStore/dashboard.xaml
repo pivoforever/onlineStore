@@ -1,0 +1,23 @@
+﻿<Page x:Class="onlineStore.dashboard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:onlineStore"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="dashboard">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Пользователь" Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right"></TextBlock>
+            <ComboBox Name="ComboUsers" SelectedIndex="0" Width="175" Margin="5" DisplayMemberPath="name"></ComboBox>
+            <TextBlock Text="Тип диаграммы" Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right"></TextBlock>
+            <ComboBox Name="ComboChartTypes" SelectedIndex="0" Width="175" Margin="5" DisplayMemberPath="name"></ComboBox>
+        </StackPanel>
+    </Grid>
+</Page>
