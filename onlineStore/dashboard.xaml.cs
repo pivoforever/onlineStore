@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace onlineStore
 {
@@ -20,9 +21,25 @@ namespace onlineStore
     /// </summary>
     public partial class dashboard : Page
     {
+        onlineStoreEntities _context = onlineStoreEntities.GetContext();
         public dashboard()
         {
             InitializeComponent();
+            ChartOrders.ChartAreas.Add(new ChartArea("Main"));
+
+            var currentSeries = new Series("Payments")
+            {
+                IsValueShownAsLabel = true,
+            };
+            ChartOrders.Series.Add(currentSeries);
+
+            ComboUsers.ItemsSource= _context.users.ToList();
+            ComboChartTypes.ItemsSource=Enum.GetValues(typeof(SeriesChartType));
+        }
+
+        private void UpdateChart(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
