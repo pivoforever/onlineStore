@@ -16,5 +16,6 @@
         <Grid Background="AliceBlue"></Grid>
         <Grid Grid.Row="2" Background="AliceBlue" ></Grid>
         <Button Margin="10" Content="На страницу входа" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="130" Height="30"  Click="Button_back" />
+        <Button Margin="10" Content="Графики" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="130" Height="30"  Click="Button_charts" />
     </Grid>
 </Window>

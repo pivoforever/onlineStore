@@ -32,5 +32,10 @@ namespace onlineStore
         {
             Manager.allFrame.Navigate(new loginPage());
         }
+
+        private void Button_charts(object sender, RoutedEventArgs e)
+        {
+            Manager.allFrame.Navigate(new dashboard());
+        }
     }
 }

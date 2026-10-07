@@ -18,7 +18,7 @@
             <TextBlock Text="Пользователь" Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right"></TextBlock>
             <ComboBox Name="ComboUsers" SelectedIndex="0" SelectionChanged="UpdateChart" Width="175" Margin="5" DisplayMemberPath="name"></ComboBox>
             <TextBlock Text="Тип диаграммы" Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right"></TextBlock>
-            <ComboBox Name="ComboChartTypes" SelectedIndex="0" SelectionChanged="UpdateChart" Width="175" Margin="5" DisplayMemberPath="name"></ComboBox>
+            <ComboBox Name="ComboChartTypes" SelectedIndex="0" SelectionChanged="UpdateChart" Width="175" Margin="5"></ComboBox>
         </StackPanel>
         <WindowsFormsHost Grid.Row="1" Margin="5">
             <charts:Chart x:Name="ChartOrders">

@@ -39,6 +39,20 @@ namespace onlineStore
 
         private void UpdateChart(object sender, SelectionChangedEventArgs e)
         {
+            if (ComboChartTypes.SelectedItem is SeriesChartType currentType && ComboUsers.SelectedItem is users currentUser)
+            {
+                Series currentSeries = ChartOrders.Series.FirstOrDefault();
+                currentSeries.ChartType = currentType;
+                currentSeries.Points.Clear();
+
+                var statusList = _context.statuses.ToList();
+                foreach (var status in statusList)
+                {
+                    currentSeries.Points.AddXY(status.name,
+                        _context.orders.ToList().Where(o => o.users == currentUser
+                        && o.statuses == status).Count());
+                }
+            }
 
         }
     }
