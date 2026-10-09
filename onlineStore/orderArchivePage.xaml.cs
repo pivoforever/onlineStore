@@ -23,7 +23,8 @@ namespace onlineStore
         public orderArchivePage()
         {
             InitializeComponent();
-            var userOrders=from row in onlineStoreEntities.GetContext().orders where row.user_ID == SessionManager.CurrentUserId select row;
+            //var userOrders=from row in onlineStoreEntities.GetContext().orders where row.user_ID == SessionManager.CurrentUserId select row;
+            var userOrders = onlineStoreEntities.GetContext().orders.ToList().Where(o => o.user_ID == SessionManager.CurrentUserId);
             orderArchiveDataGrid.ItemsSource= userOrders.ToList();
         }
 

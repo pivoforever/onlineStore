@@ -44,7 +44,7 @@ namespace onlineStore
 
         private void goodsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //goodsPriceLabel.Content = "Цена: " + (goodsComboBox.SelectedItem as goods).price + " руб.";
+            goodsPriceLabel.Content = "Цена: " + (goodsComboBox.SelectedItem as goods).price + " руб.";
         }
     }
 }
