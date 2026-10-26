@@ -67,7 +67,7 @@ namespace onlineStore
 
         private void BtnExportToExcel_Click(object sender, RoutedEventArgs e)
         {
-            var allUser= _context.users.ToList().OrderBy(p  => p.name).ToList();
+            var allUser= _context.orders.ToList();
 
             var application = new Excel.Application();
             application.SheetsInNewWorkbook = allUser.Count();
@@ -79,8 +79,21 @@ namespace onlineStore
             for (int i = 0; i < allUser.Count(); i++)
             {
                 Excel.Worksheet worksheet = application.Worksheets.Item[i + 1];
-                worksheet.Name= allUser[i].name;
+                //worksheet.Name= allUser[i].user_ID.ToString();
+
+                worksheet.Cells[1][startRowIndex]="Дата заказа";
+                worksheet.Cells[2][startRowIndex] = "Статус заказа";
+
+                startRowIndex++;
+
+                var userStatuses = allUser.GroupBy(p => p.statuses);
+
+                foreach (var groupStatus in userStatuses)
+                {
+                    Excel.Range headerRange = worksheet.Range[worksheet.Cells[1][startRowIndex], worksheet.Cells[5][startRowIndex]];
+                }
             }
+            application.Visible = true;
         }
     }
 }
