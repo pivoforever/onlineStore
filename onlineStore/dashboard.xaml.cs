@@ -88,16 +88,31 @@ namespace onlineStore
 
                 startRowIndex++;
 
-                //var ordersStatuses = _context.statuses.ToList();
+                var usersOrders = allUsers[i].orders.OrderBy(p => p.date).GroupBy(p => p.statuses).OrderBy(p => p.Key.name);
 
-                foreach (var order in allOrders.Where(p => p.users.name == allUsers[i].name).ToList())
+                foreach (var groupOrder in usersOrders)
 
                 {
-                    //Excel.Range headerRange = worksheet.Range[worksheet.Cells[1][startRowIndex], worksheet.Cells[2][startRowIndex]];
-                    //headerRange.Merge();
-                    //headerRange.Value = groupStatus.name;
-                    worksheet.Cells[1][startRowIndex] = order.date.ToString();
-                    worksheet.Cells[2][startRowIndex] = order.statuses.name;
+                    Excel.Range headerRange = worksheet.Range[worksheet.Cells[1][startRowIndex], worksheet.Cells[2][startRowIndex]];
+                    headerRange.Merge();
+                    headerRange.Value = groupOrder.Key.name;
+                    headerRange.HorizontalAlignment=Excel.XlHAlign.xlHAlignCenter;
+                    headerRange.Font.Italic= true;
+
+                    startRowIndex++;
+
+                    foreach (var order in groupOrder)
+                    {
+                        worksheet.Cells[1][startRowIndex] = order.date.ToString("dd.MM.yyyy");
+                        worksheet.Cells[2][startRowIndex] = order.statuses.name;
+
+                        startRowIndex++;
+                    }
+                    worksheet.Cells[1][startRowIndex] = "ИТОГО:";
+                    worksheet.Cells[1][startRowIndex].HorizontalAlignment = Excel.XlHAlign.xlHAlignRight;
+                    worksheet.Cells[1][startRowIndex].Font.Bold= true;
+                    worksheet.Cells[2][startRowIndex] = groupOrder.Count();
+
                     startRowIndex++;
                 }
             }
