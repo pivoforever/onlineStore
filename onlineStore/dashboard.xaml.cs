@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Excel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace onlineStore
 {
@@ -26,9 +28,9 @@ namespace onlineStore
         public dashboard()
         {
             InitializeComponent();
-            ChartOrders.ChartAreas.Add(new ChartArea("Main"));
+            ChartOrders.ChartAreas.Add(new System.Windows.Forms.DataVisualization.Charting.ChartArea("Main"));
 
-            var currentSeries = new Series("Statuses")
+            var currentSeries = new System.Windows.Forms.DataVisualization.Charting.Series("Statuses")
             {
                 IsValueShownAsLabel = true,
             };
@@ -43,7 +45,7 @@ namespace onlineStore
         {
             if (ComboChartTypes.SelectedItem is SeriesChartType currentType && ComboUsers.SelectedItem is users currentUser)
             {
-                Series currentSeries = ChartOrders.Series.FirstOrDefault();
+                System.Windows.Forms.DataVisualization.Charting.Series currentSeries = ChartOrders.Series.FirstOrDefault();
                 currentSeries.ChartType = currentType;
                 currentSeries.Points.Clear();
 
@@ -61,6 +63,24 @@ namespace onlineStore
                 }
             }
 
+        }
+
+        private void BtnExportToExcel_Click(object sender, RoutedEventArgs e)
+        {
+            var allUser= _context.users.ToList().OrderBy(p  => p.name).ToList();
+
+            var application = new Excel.Application();
+            application.SheetsInNewWorkbook = allUser.Count();
+
+            Excel.Workbook workbook = application.Workbooks.Add(Type.Missing);
+
+            int startRowIndex = 1;
+
+            for (int i = 0; i < allUser.Count(); i++)
+            {
+                Excel.Worksheet worksheet = application.Worksheets.Item[i + 1];
+                worksheet.Name= allUser[i].name;
+            }
         }
     }
 }

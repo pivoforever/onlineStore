@@ -14,11 +14,16 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock Text="Пользователь" Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right"></TextBlock>
-            <ComboBox Name="ComboUsers" SelectedIndex="0" SelectionChanged="UpdateChart" Width="175" Margin="5" DisplayMemberPath="name"></ComboBox>
-            <TextBlock Text="Тип диаграммы" Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right"></TextBlock>
-            <ComboBox Name="ComboChartTypes" SelectedIndex="0" SelectionChanged="UpdateChart" Width="175" Margin="5"></ComboBox>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Пользователь" Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right"></TextBlock>
+                <ComboBox Name="ComboUsers" SelectedIndex="0" SelectionChanged="UpdateChart" Width="175" Margin="5" DisplayMemberPath="name"></ComboBox>
+                <TextBlock Text="Тип диаграммы" Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right"></TextBlock>
+                <ComboBox Name="ComboChartTypes" SelectedIndex="0" SelectionChanged="UpdateChart" Width="175" Margin="5"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Button Content="Экспорт в Excel" VerticalAlignment="Center" Width="125" Margin="5" Name="BtnExportToExcel" Click="BtnExportToExcel_Click"></Button>
+            </StackPanel>
         </StackPanel>
         <WindowsFormsHost Grid.Row="1" Margin="5">
             <charts:Chart x:Name="ChartOrders">
