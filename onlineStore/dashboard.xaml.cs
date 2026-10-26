@@ -67,30 +67,38 @@ namespace onlineStore
 
         private void BtnExportToExcel_Click(object sender, RoutedEventArgs e)
         {
-            var allUser= _context.orders.ToList();
+            var allOrders= _context.orders.ToList();
+            var allUsers=_context.users.ToList().OrderBy(p => p.name).ToList();
 
             var application = new Excel.Application();
-            application.SheetsInNewWorkbook = allUser.Count();
+            application.SheetsInNewWorkbook = allUsers.Count();
 
             Excel.Workbook workbook = application.Workbooks.Add(Type.Missing);
 
-            int startRowIndex = 1;
 
-            for (int i = 0; i < allUser.Count(); i++)
+            for (int i = 0; i < allUsers.Count(); i++)
             {
+                int startRowIndex = 1;
+
                 Excel.Worksheet worksheet = application.Worksheets.Item[i + 1];
-                //worksheet.Name= allUser[i].user_ID.ToString();
+                worksheet.Name = allUsers[i].name;
 
                 worksheet.Cells[1][startRowIndex]="Дата заказа";
                 worksheet.Cells[2][startRowIndex] = "Статус заказа";
 
                 startRowIndex++;
 
-                var userStatuses = allUser.GroupBy(p => p.statuses);
+                //var ordersStatuses = _context.statuses.ToList();
 
-                foreach (var groupStatus in userStatuses)
+                foreach (var order in allOrders.Where(p => p.users.name == allUsers[i].name).ToList())
+
                 {
-                    Excel.Range headerRange = worksheet.Range[worksheet.Cells[1][startRowIndex], worksheet.Cells[5][startRowIndex]];
+                    //Excel.Range headerRange = worksheet.Range[worksheet.Cells[1][startRowIndex], worksheet.Cells[2][startRowIndex]];
+                    //headerRange.Merge();
+                    //headerRange.Value = groupStatus.name;
+                    worksheet.Cells[1][startRowIndex] = order.date.ToString();
+                    worksheet.Cells[2][startRowIndex] = order.statuses.name;
+                    startRowIndex++;
                 }
             }
             application.Visible = true;
